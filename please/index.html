@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="FPT_Logo.png" alt="FPT Logo">
+        <a href="{{ url_for('index') }}" class="active">Classification</a>
+        <a href="clustering.html">Clustering</a>
+        <a href="#">Analytics</a>
+    </nav>
+    <div class="container">
+        <div class="camera-feed">
+            <h2>Camera Feed</h2>
+            <!-- <img src="{{ url_for('video_feed') }}"> -->
+        </div>
+        <div class="engagement-graph">
+            <h2>Student is : <span style="color: crimson;">sleeping</span></h2>
+            <div id="engagementChart"></div>
+        </div>
+        
+        <div class="face_count">
+            <h2>Faces Count</h2>
+            <div id="facesChart"></div>
+        </div>
+        <div class="ear-graph">
+            <h2>Tiredness</h2>
+            <div id="earChart"></div>
+        </div>
+    </div>
+</body>
+</html>

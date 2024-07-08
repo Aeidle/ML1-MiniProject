@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream and Analytics</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('index') }}">Classification</a>
+        <a href="{{ url_for('clustering') }}" class="active">Clustering</a>
+        <a href="#">Analytics</a>
+    </nav>
+    <div class="container">
+        <div class="form-container">
+            <h2>Clustering Form</h2>
+            <form method="POST" action="{{ url_for('perform_clustering') }}">
+                <label for="logins"># Logins</label>
+                <input type="number" id="logins" name="logins" required>
+                
+                <label for="content_reads"># Content Reads</label>
+                <input type="number" id="content_reads" name="content_reads" required>
+                
+                <label for="forum_reads"># Forum Reads</label>
+                <input type="number" id="forum_reads" name="forum_reads" required>
+                
+                <label for="forum_posts"># Forum Posts</label>
+                <input type="number" id="forum_posts" name="forum_posts" required>
+                
+                <label for="quiz_reviews"># Quiz Reviews before submission</label>
+                <input type="number" id="quiz_reviews" name="quiz_reviews" required>
+                
+                <label for="assignment_1_lateness">Assignment 1 lateness indicator</label>
+                <input type="number" id="assignment_1_lateness" name="assignment_1_lateness" required>
+                
+                <label for="assignment_2_lateness">Assignment 2 lateness indicator</label>
+                <input type="number" id="assignment_2_lateness" name="assignment_2_lateness" required>
+                
+                <label for="assignment_3_lateness">Assignment 3 lateness indicator</label>
+                <input type="number" id="assignment_3_lateness" name="assignment_3_lateness" required>
+                
+                <label for="assignment_1_duration">Assignment 1 duration to submit (in hours)</label>
+                <input type="number" id="assignment_1_duration" name="assignment_1_duration" required>
+                
+                <label for="assignment_2_duration">Assignment 2 duration to submit (in hours)</label>
+                <input type="number" id="assignment_2_duration" name="assignment_2_duration" required>
+                
+                <label for="assignment_3_duration">Assignment 3 duration to submit (in hours)</label>
+                <input type="number" id="assignment_3_duration" name="assignment_3_duration" required>
+                
+                <label for="average_time_to_submit">Average time to submit assignment (in hours)</label>
+                <input type="number" id="average_time_to_submit" name="average_time_to_submit" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

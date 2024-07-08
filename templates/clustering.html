@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream and Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('index') }}">Classification</a>
+        <a href="{{ url_for('clustering') }}" class="active">Clustering</a>
+        <a href="#">Analytics</a>
+    </nav>
+    <div class="container_form">
+        <div class="form-container">
+            <h2>Clustering Form</h2>
+            <form method="POST" action="{{ url_for('perform_clustering') }}">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="logins"># Logins</label>
+                        <input type="number" id="logins" name="logins" placeholder="e.g: 143" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="content_reads"># Content Reads</label>
+                        <input type="number" id="content_reads" name="content_reads" placeholder="e.g: 344" value="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="forum_reads"># Forum Reads</label>
+                        <input type="number" id="forum_reads" name="forum_reads" placeholder="e.g: 58" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="forum_posts"># Forum Posts</label>
+                        <input type="number" id="forum_posts" name="forum_posts" placeholder="e.g: 0" value="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quiz_reviews"># Quiz Reviews before submission</label>
+                        <input type="number" id="quiz_reviews" name="quiz_reviews" placeholder="e.g: 3" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignment_1_lateness">Assignment 1 lateness indicator</label>
+                        <input type="number" id="assignment_1_lateness" name="assignment_1_lateness" placeholder="e.g: 0" value="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="assignment_2_lateness">Assignment 2 lateness indicator</label>
+                        <input type="number" id="assignment_2_lateness" name="assignment_2_lateness" placeholder="e.g: 0" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignment_3_lateness">Assignment 3 lateness indicator</label>
+                        <input type="number" id="assignment_3_lateness" name="assignment_3_lateness" placeholder="e.g: 0" value="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="assignment_1_duration">Assignment 1 duration to submit (in hours)</label>
+                        <input type="number" id="assignment_1_duration" name="assignment_1_duration" placeholder="e.g: 178" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignment_2_duration">Assignment 2 duration to submit (in hours)</label>
+                        <input type="number" id="assignment_2_duration" name="assignment_2_duration" placeholder="e.g: 92" value="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="assignment_3_duration">Assignment 3 duration to submit (in hours)</label>
+                        <input type="number" id="assignment_3_duration" name="assignment_3_duration" placeholder="e.g: 116" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="average_time_to_submit">Average time to submit assignment (in hours)</label>
+                        <input type="number" id="average_time_to_submit" name="average_time_to_submit" placeholder="e.g: 129" value="0" required>
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="clustering-result">
+            <h2>The student belongs to the <span id="cluster-group" style="color: crimson;"></span> group</h2>
+            <div id="clusterPlot"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
